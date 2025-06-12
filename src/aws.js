@@ -6,7 +6,7 @@ const config = require('./config');
 // User data scripts are run as the root user
 function buildUserDataScript(githubRegistrationToken, label) {
   let userData;
-  const actionRunnerVersion = 'v2.313.0';
+  const actionRunnerVersion = 'v2.325.0';
   if (config.input.runnerHomeDir) {
     // If runner home directory is specified, we expect the actions-runner software (and dependencies)
     // to be pre-installed in the AMI, so we simply cd into that directory and then start the runner
