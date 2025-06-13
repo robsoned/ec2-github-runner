@@ -6,7 +6,6 @@ const config = require('./config');
 // User data scripts are run as the root user
 function buildUserDataScript(githubRegistrationToken, label) {
   let userData;
-  const actionRunnerVersion = 'v2.325.0';
   if (config.input.runnerHomeDir) {
     // If runner home directory is specified, we expect the actions-runner software (and dependencies)
     // to be pre-installed in the AMI, so we simply cd into that directory and then start the runner
@@ -27,8 +26,8 @@ function buildUserDataScript(githubRegistrationToken, label) {
       `echo "${config.input.preRunnerScript}" > pre-runner-script.sh`,
       'source pre-runner-script.sh',
       'case $(uname -m) in aarch64) ARCH="arm64" ;; amd64|x86_64) ARCH="x64" ;; esac && export RUNNER_ARCH=${ARCH}',
-      `curl -O -L https://github.com/actions/runner/releases/download/${actionRunnerVersion}/actions-runner-linux-$RUNNER_ARCH-${actionRunnerVersion}.tar.gz`,
-      `tar xzf ./actions-runner-linux-$RUNNER_ARCH-${actionRunnerVersion}.tar.gz`,
+      `curl -O -L https://github.com/actions/runner/releases/download/${config.input.actionRunnerVersion}/actions-runner-linux-$RUNNER_ARCH-${config.input.actionRunnerVersion}.tar.gz`,
+      `tar xzf ./actions-runner-linux-$RUNNER_ARCH-${config.input.actionRunnerVersion}.tar.gz`,
       'export RUNNER_ALLOW_RUNASROOT=1',
       `./config.sh --url https://github.com/${config.githubContext.owner}/${config.githubContext.repo} --token ${githubRegistrationToken} --labels ${label}`,
     ];
