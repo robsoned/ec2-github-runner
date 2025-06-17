@@ -27,6 +27,7 @@ class Config {
       blockDeviceMappings: JSON.parse(core.getInput('block-device-mappings') || '[]'),
       availabilityZonesConfig: core.getInput('availability-zones-config'),
       actionRunnerVersion: core.getInput('action-runner-version') || 'v2.325.0',
+      ec2KeyPairName: core.getInput('ec2-key-pair-name'),
     };
 
     // Get the AWS_REGION environment variable

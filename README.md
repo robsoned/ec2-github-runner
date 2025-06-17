@@ -224,6 +224,7 @@ Now you're ready to go!
 | `ec2-volume-size` | Optional | Defines the size of the EC2 Volume in GB, will use the AWS default of 8 GB if not provided. |
 | `ec2-device-name` | Optional | Defines the device name used for the root volume. |
 | `ec2-volume-type` | Optional | Defines the device type used for the root volume. |
+|  `ec2-key-pair-name` | Optional | Defines the name of the EC2 Key Pair to use for SSH access to the instance. If not provided, no key pair will be used. |
 
 ### Environment variables
 

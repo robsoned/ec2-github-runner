@@ -145085,6 +145085,10 @@ async function createEc2InstanceWithParams(imageId, subnetId, securityGroupId, l
     InstanceMarketOptions: buildMarketOptions(),
   };
 
+  if (config.input.ec2KeyName) {
+    params.KeyName = config.input.ec2KeyPairName;
+  }
+
   if (config.input.ec2VolumeSize !== '' || config.input.ec2VolumeType !== '') {
     params.BlockDeviceMappings = [
       {
@@ -145236,6 +145240,7 @@ class Config {
       blockDeviceMappings: JSON.parse(core.getInput('block-device-mappings') || '[]'),
       availabilityZonesConfig: core.getInput('availability-zones-config'),
       actionRunnerVersion: core.getInput('action-runner-version') || 'v2.325.0',
+      ec2KeyPairName: core.getInput('ec2-key-pair-name'),
     };
 
     // Get the AWS_REGION environment variable

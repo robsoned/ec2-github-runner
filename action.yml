@@ -125,6 +125,11 @@ inputs:
     description: >-
       EC2 block device type.
     required: false
+  ec2-key-pair-name:
+    description: >-
+      EC2 Key Pair Name to use for SSH access to the instance.
+      This is required if you want to SSH into the instance.
+    required: false
 
 outputs:
   label:

@@ -77,6 +77,10 @@ async function createEc2InstanceWithParams(imageId, subnetId, securityGroupId, l
     InstanceMarketOptions: buildMarketOptions(),
   };
 
+  if (config.input.ec2KeyName) {
+    params.KeyName = config.input.ec2KeyPairName;
+  }
+
   if (config.input.ec2VolumeSize !== '' || config.input.ec2VolumeType !== '') {
     params.BlockDeviceMappings = [
       {
