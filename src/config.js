@@ -26,7 +26,7 @@ class Config {
       ec2VolumeType: core.getInput('ec2-volume-type'),
       blockDeviceMappings: JSON.parse(core.getInput('block-device-mappings') || '[]'),
       availabilityZonesConfig: core.getInput('availability-zones-config'),
-      actionRunnerVersion: core.getInput('action-runner-version') || 'v2.325.0',
+      actionRunnerVersion: core.getInput('action-runner-version') || '2.325.0',
       ec2KeyPairName: core.getInput('ec2-key-pair-name'),
     };
 
