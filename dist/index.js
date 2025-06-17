@@ -145034,7 +145034,7 @@ function buildUserDataScript(githubRegistrationToken, label) {
       `echo "${config.input.preRunnerScript}" > pre-runner-script.sh`,
       'source pre-runner-script.sh',
       'case $(uname -m) in aarch64) ARCH="arm64" ;; amd64|x86_64) ARCH="x64" ;; esac && export RUNNER_ARCH=${ARCH}',
-      `curl -O -L https://github.com/actions/runner/releases/download/${config.input.actionRunnerVersion}/actions-runner-linux-$RUNNER_ARCH-${config.input.actionRunnerVersion}.tar.gz`,
+      `curl -O -L https://github.com/actions/runner/releases/download/v${config.input.actionRunnerVersion}/actions-runner-linux-$RUNNER_ARCH-${config.input.actionRunnerVersion}.tar.gz`,
       `tar xzf ./actions-runner-linux-$RUNNER_ARCH-${config.input.actionRunnerVersion}.tar.gz`,
       'export RUNNER_ALLOW_RUNASROOT=1',
       `./config.sh --url https://github.com/${config.githubContext.owner}/${config.githubContext.repo} --token ${githubRegistrationToken} --labels ${label}`,
